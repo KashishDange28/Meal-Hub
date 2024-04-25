@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Hub</title>
+    <link rel="stylesheet" href="hom.css">
+    <style>
+        body {
+            font-family:'Montserrat', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: none;
+           
+            text-align: center; /* Center align the content */
+        }
+        .container img {
+            width: 150px; /* Adjust the width of the image */
+            height: 200px; /* Adjust the height of the image */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+            border-radius: 8px; /* Make the image slightly rounded */
+            margin-bottom: 20px; /* Add some space below the image */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%; /* Make both input and select full width */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #FFD841;
+            color: #fff;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #FFD841;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="image/log.png" alt="Meal Hub Logo">
+            <span>Meal Hub</span>
+        </div>
+        <ul>
+            <li><a href="Offer.html">Home</a></li>
+            <li><a href="#">Recent Orders</a></li>
+            <li><a href="#">Location</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="imgc">
+        <img src="image/img4.jpg" alt="Profile Photo">
+    </div>
+        <form action="#" method="post">
+            <div class="form-group">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="date" name="dob" placeholder="Date of Birth" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <select name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Mobile Number" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

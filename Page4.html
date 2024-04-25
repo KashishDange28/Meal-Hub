@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Meal Hub</title>
+    <style>
+        body {
+            background-color: #ECAF01;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-weight: bold;
+            margin-top: -50px; /* Adjust as needed to move the heading up */
+        }
+
+        .image-container {
+            margin-bottom: 40px; /* Adjust as needed to create space between image and heading */
+        }
+
+        .image-container img {
+            max-width: 200px; /* Set the maximum width of the image */
+            height: auto;
+        }
+
+        .input-container {
+            position: relative; /* Position relative for icon placement */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            padding: 10px 35px 10px 40px; /* Adjust padding to accommodate icons */
+            margin-bottom: 10px;
+            width: 200px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+
+        input::before {
+            content: '\f0e0'; /* Unicode for envelope icon */
+            font-family: 'Font Awesome 6';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777; /* Adjust icon color */
+        }
+
+        input[type="password"]::before {
+            content: '\f023'; /* Unicode for lock icon */
+        }
+
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            width: 100%; /* Adjust as needed */
+        }
+
+        .button-container a {
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 22px;
+            text-align: center;
+        }
+
+        .fa-lock {
+            position: absolute;
+            left: 20px; /* Adjusted position */
+            top: 30%;
+            transform: translateY(-20%);
+            color: #ECAF01; /* Adjust color as needed */
+        }
+
+        .fa-envelope {
+            position: absolute;
+            left: 20px; /* Adjusted position */
+            top: 43%;
+            transform: translateY(-60%);
+            color: #ECAF01; /* Adjust color as needed */
+        }
+
+        .signup {
+            color: #FFFFFF;
+            margin-right: 10px; /* Add space between buttons */
+        }
+
+        .forgot-password {
+            color: #2D2626;
+            margin-left: 10px; /* Add space between buttons */
+        }
+
+        .login {
+            padding: 15px 90px; /* Adjust padding as needed */
+            background: #FFD841;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #201f1f;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img class="clear-image" src="image/logo4.png" alt="Logo">
+    </div>
+    <h1>Welcome back</h1>
+        <div class="input-container">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" placeholder="Email ID/Name">
+        </div>
+       
+        <div class="input-container">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="Password">
+        </div>
+    <div class="input-container">   
+        <div class="button-container">
+            <a class="signup" href="#">Sign Up</a>
+            <a class="forgot-password" href="#">Forgot Password ?</a>
+        </div>
+    </div>
+    <a class="login" onclick="window.location.href='Offer.html'">Login</a>
+</body>
+</html>

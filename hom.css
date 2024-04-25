@@ -1,0 +1,59 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white; /* Adjusted shade for the background */
+    background-image: url('texture.png'); /* Background pattern or texture image */
+}
+
+nav {
+    background-color: #FFD841;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* Applies circular shape to the image */
+}
+
+.logo span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+ul {
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: flex-start; /* Align items at the start of the cross axis */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-left: 20px;
+    align-self: flex-end; /* Align each item at the end of the cross axis */
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.imgc{
+    border-radius: 50%; 
+}

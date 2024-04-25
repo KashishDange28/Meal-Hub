@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal hub</title>
+    <style>
+
+        body {
+            /* Start Screen */
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #F7BA08;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .image-container {
+            width: 253px;
+            height: 257px;
+            margin: 0 auto; 
+            border-radius: 50%; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('log.png');
+            background-size: cover;
+            filter: blur(10px); 
+            border-radius: 50%; 
+            z-index: 1; 
+        }
+
+        .clear-image {
+   
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            z-index: 2; /* Ensure the clear image is above the overlay */
+            border-radius: 50%; /* Make the clear image circular */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .register-button,
+        .signin-button {
+            width: 179px;
+            height: 65px;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .register-button {
+            background: #DADADA;
+            box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.12);
+            border-radius: 0 15px 15px 0; /* Left side curved, right side straight */
+            color: #000; /* Change the text color to black */
+        }
+
+        .signin-button {
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px 0 0 15px; /* Right side curved, left side straight */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <div class="blur-overlay"></div>
+            <img class="clear-image" src="image/log.png" alt="Meal Image">
+        </div>
+        <header>
+            <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Order your favorite Meals Here!</h1>
+        </header>
+        <div class="button-container">
+            <button class="button signin-button" onclick="window.location.href='Page4.html'">Sign in</button>
+            <button class="button register-button" onclick="window.location.href='Page2.html'">Register</button>
+        </div>
+    </div>
+</body>
+</html>

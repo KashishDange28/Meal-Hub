@@ -1,0 +1,269 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ECAF01;
+        }
+
+        .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* Applies circular shape to the image */
+}
+
+.logo span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+        header {
+            background-color:  #ECAF01;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 500px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: block;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 80%; /* Full width */
+            margin: 0 auto;
+            height: 50%;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .order {
+            border-bottom: 1px solid white;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly; /* Align items to the ends */
+            background-color: white;
+        }
+
+        .order img {
+            width: 150px;
+            height: 130px;
+            size: 100px;
+            border-radius: 5px;
+            margin-left: 20px; /* Move image to the right */
+        }
+
+        .order-details {
+            flex-grow: 1; /* Allow details to occupy remaining space */
+        }
+
+        .order h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 5px; /* Add space between image and details */
+        }
+        /*.search{
+            background-color: #e33939;
+            width: 700px;
+            justify-content: center;
+            align-items: center;
+        }*/
+        
+    </style>
+</head>
+<body style="background-color: #fff;">
+    <header>
+        <nav>
+        <center>
+        <div class="search">
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass" ></i>
+        <input type="text" placeholder="Search">
+    </div>
+</div>
+</center>
+    
+    <div class="logo">
+        <img src="log.png" alt="Meal Hub Logo">
+        </div>
+    </nav>
+    </header>
+    <section id="today-orders" class="container">
+        <h2>Today's Orders</h2>
+        <div class="order">
+            <div class="order-details">
+                
+                <p>Item: Cheeseburger</p>
+                <p>Quantity: 1</p>
+                <p>Total Price: $5.99</p>
+            </div>
+            <img src="img1.jpeg" alt="Cheeseburger">
+        </div>
+        <div class="order">
+            <div class="order-details">
+                
+                <p>Item: Margherita Pizza</p>
+                <p>Quantity: 2</p>
+                <p>Total Price: $15.98</p>
+            </div>
+            <img src="img2.jpg" alt="Margherita Pizza">
+        </div>
+        <div class="order">
+            <div class="order-details">
+                
+                <p>Item: Chicken Caesar Salad</p>
+                <p>Quantity: 1</p>
+                <p>Total Price: $8.49</p>
+            </div>
+            <img src="img3.JPG" alt="Chicken Caesar Salad">
+        </div>
+         Add more orders as needed
+    </section>
+
+     You can add more sections as needed 
+
+    <script>
+        // You can add JavaScript functionality here
+    </script>
+</body>
+</html>-->
+<!----->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+   <header>
+    <div class="navbar">
+    
+            <div class="logo"></div>
+            </div>
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                    </select>
+                    <input placeholder="Search Amazon" class="search-input">
+                    <div class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass" ></i>
+                        
+                    </div>
+            </div>
+
+   </header>
+</body>
+<style>
+   .navbar{
+    height: 60px;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+   
+}
+.add-first{
+    color: azure;
+    font-size: 0.85rem;
+    margin-left: 15px;
+}
+.add-sec{
+    color: aliceblue;
+    font-size: 1rem;
+    margin-left: 3px;
+}
+.add-icon{
+    display: flex;
+    align-items: center;
+}
+.nav-logo{
+    height: 50px;
+    width: 100px;
+}
+.logo
+{
+    background-image: url('image/log.png');
+    background-size: cover;
+    height: 50px;
+width: 100px;
+}
+.nav-search{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(207, 174, 26);
+    width: 620px;
+    height: 40px;
+    border-radius: 4px;
+}
+.search-select{
+    background-color: aliceblue;
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+}
+.search-input{
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+}
+.search-icon{
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: rgb(255, 149, 0);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: rgb(0, 0, 0);
+}
+.nav-search:hover{
+    border: 2px solid orange;
+}
+</style>
+</html>

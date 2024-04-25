@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Map</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .find-food-btn {
+            background-color: #FFD841;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .continue-btn{
+            background-color: #FFD841;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .find-food-btn:hover {
+            background-color: #FFD841;
+        }
+        .continue-btn:hover {
+            background-color: #FFD841;
+        }
+        
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white; /* Adjusted shade for the background */
+    background-image: url('texture.png'); /* Background pattern or texture image */
+}
+
+nav {
+    background-color: #FFD841;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* Applies circular shape to the image */
+}
+
+.logo span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+ul {
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: flex-start; /* Align items at the start of the cross axis */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-left: 20px;
+    align-self: flex-end; /* Align each item at the end of the cross axis */
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.imgc{
+    border-radius: 50%; 
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="image/log.png" alt="Meal Hub Logo">
+            <span>Meal Hub</span>
+        </div>
+        <ul>
+            <li><a href="Offer.html">Home</a></li>
+            <li><a href="#">Recent Orders</a></li>
+            <li><a href="#">Location</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+    
+        <input type="text" id="searchInput" class="search-bar" placeholder="Enter your address...">
+        <div id="map"></div>
+        <div class="but">
+        <button onclick="findFoodNearby()" class="find-food-btn">Find Food Nearby</button>
+        <button onclick="continueToOrder()" class="continue-btn">Continue</button>
+    </div>
+    </div>
+
+    <script>
+        var map;
+        var marker;
+
+        function initMap() {
+            // Default location (example coordinates)
+            var defaultLocation = {lat: 40.7128, lng: -74.0060};
+            // Map, centered at default location
+            map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 12, center: defaultLocation});
+            // Marker, positioned at default location
+            marker = new google.maps.Marker({position: defaultLocation, map: map});
+        }
+
+        function findFoodNearby() {
+            var address = document.getElementById('searchInput').value;
+            // Use geocoding to convert address to coordinates
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': address }, function(results, status) {
+                if (status == 'OK') {
+                    var location = results[0].geometry.location;
+                    // Update map center and marker position
+                    map.setCenter(location);
+                    marker.setPosition(location);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
