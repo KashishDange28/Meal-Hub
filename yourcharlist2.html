@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            padding: 5px; /* Decrease padding */
+            height: 30px;
+            font-size: 18px; /* Decrease font size */
+            text-align: middle;
+            font-size: 18px; /* Decrease font size */
+            color: #292727; /* Set text color for navigation bar */
+            background-color: #FFD841; /* Set background color for navigation bar */
+            display: flex;
+            justify-content: space-between; /* Align items and menu icon to the ends */
+            align-items: center; /* Center vertically */
+        }
+        .image-icon {
+            width: 40px; /* Set width of the image icon */
+            height: 30px;
+            margin-right: 10px; /* Add margin to create space between image icon and text */
+        }
+        .header {
+            text-align: left;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .price {
+            font-weight: bold;
+            display: inline-block;
+            float: left;
+            margin-right: 10px; /* Add margin to create space between price and button */
+        }
+        .add-button {
+            background: #018547;
+            margin-left: 200px; /* Add margin to move the button to the right of the price */
+            padding: 5px 10px; /* Add padding to the button */
+            width: 92px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            background-color: #018547;
+        }
+        .add-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        button[type="submit"] {
+            align-items: center;
+            width: 50%;
+            height: 50px;
+            padding: 10px;
+            background-color: #ECAF01;
+            color: #292727;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ECAF01;
+        }
+       
+        h1 {
+            margin: 0;
+            padding: 10px;
+            text-align: left;
+        }
+        .tiffin-group {
+            width: 100%;
+        }
+        .tiffin-item {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <img class="image-icon" src="image/log.png" alt="Icon">
+            <i class="fas fa-arrow-left back-icon"></i> Your Cart
+        </div>
+        <i class="fas fa-bars menu-icon"></i> <!-- Menu icon -->
+    </div>
+    <div class="container">
+        <div class="item">
+            <h2>Minni Tiffin</h2>
+            <p>Brinjal's Sabji, 2 chapati, Dal, Rice, Desert<br></p>
+            <p><span class="price">Rs. 150</span> <button class="add-button" onclick="addToCart('Minni Tiffin', 150)">ADD</button><br></p>
+        </div>
+        <div class="tiffin-group">
+            <div class="item tiffin-item">
+                <h2>Regular Tiffin</h2>
+                <p>LadyFinger, 3 chapati, Dal, Rice, Ras Malai, Soft Drink<br></p>
+                <p><span class="price">Rs. 180</span> <button class="add-button" onclick="addToCart('Regular Tiffin', 180)">ADD</button><br></p>
+            </div>
+            <div class="item tiffin-item">
+                <h2>Jumbo Tiffin</h2>
+                <p>3 types of Sabji, 6 chapati, Dal, Rice, Gulab Jamun, Ras Malai, Soft Drink<br></p>
+                <p><span class="price">Rs. 200</span> <button class="add-button" onclick="addToCart('Jumbo Tiffin', 200)">ADD</button><br></p>
+            </div>
+        </div>
+        <center>
+            <button type="submit" onclick="gotonextpage()">Place Order</button>
+        </center>
+    </div>
+
+    <script>
+        var selectedTiffins = [];
+
+        function addToCart(tiffinName, tiffinPrice) {
+            // Check if tiffin already exists in selectedTiffins
+            var tiffinExists = selectedTiffins.some(function(tiffin) {
+                return tiffin.name === tiffinName;
+            });
+
+            if (tiffinExists) {
+                alert('You have already added ' + tiffinName + ' to your cart!');
+            } else {
+                selectedTiffins.push({ name: tiffinName, price: tiffinPrice });
+                alert(tiffinName + " added to your cart!");
+            }
+        }
+
+        function gotonextpage() {
+            if (selectedTiffins.length > 0) {
+                // Store selected tiffins in localStorage
+                localStorage.setItem('selectedTiffins', JSON.stringify(selectedTiffins));
+                // Redirect to yourcart1.html
+                window.location.href = 'yourcart1.html';
+            } else {
+                alert('No tiffin added. Please add tiffin to proceed with the payment.');
+            }
+        }
+    </script>
+</body>
+</html>

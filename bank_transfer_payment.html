@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer Payment</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 10px 0;
+            background-color: #FFD841;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #FFD841;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: #FFD841;">Bank Transfer Payment</h2>
+        <form id="paymentForm" action="Fast_Delivery.html" method="POST">
+            <label for="accountNumber">Bank Account Number</label>
+            <input type="text" id="accountNumber" name="accountNumber" required>
+
+            <label for="routingNumber">Routing Number</label>
+            <input type="text" id="routingNumber" name="routingNumber" placeholder="For some regions" required>
+
+            <label for="accountHolder">Account Holder Name</label>
+            <input type="text" id="accountHolder" name="accountHolder" required>
+
+            <label for="bankNameAddress">Bank Name and Address</label>
+            <textarea id="bankNameAddress" name="bankNameAddress" rows="4" required></textarea>
+
+            <button type="submit" class="submit-button">Submit Payment</button>
+        </form>
+    </div>
+</body>
+</html>

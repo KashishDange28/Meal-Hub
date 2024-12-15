@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Payment Options</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            padding: 10px;
+            font-size: 20px;
+            color: #292727;
+            background-color: #FFD841;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-icon {
+            margin-right: 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* Applies circular shape to the image */
+        }
+        .n1{
+            display: flex;
+            align-items: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 2%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the container */
+        }
+        h1 {
+            margin-top: 30px;
+            color: #292727;
+        }
+        .payment-options {
+            margin-top: 30px;
+
+            padding: 20px; /* Add padding to the payment options */
+        }
+        .payment-option {
+            margin-bottom: 20px;
+        }
+        .pay-button {
+            width: 40%;
+            height: 50px;
+            padding: 10px 20px;
+            background-color: #FFD841;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .pay-button:hover {
+            background-color: #FFD841;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="n1">
+            <img class="image-icon" src="image/log.png" alt="Icon">
+            <span>Your Cart</span>
+        </div>
+        <i class="fas fa-bars menu-icon" onclick="redirectToCartPage()"></i> <!-- Menu icon -->
+    </div>
+    <div class="container">
+        <h1>Select Payment Method</h1>
+        <div class="payment-options">
+            <div class="payment-option">
+                <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery">
+                <label for="cashOnDelivery">Cash on Delivery</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="onlinePayment" name="paymentMethod" value="onlinePayment">
+                <label for="onlinePayment">Online Payment</label>
+            </div>
+        </div>
+        <button class="pay-button" id="payButton">Pay</button>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+         function redirectToCartPage() {
+            window.location.href = 'payment.html'; // Replace 'cart.html' with the URL of your cart page
+        }
+        // Handle pay button click
+        document.getElementById('payButton').addEventListener('click', function() {
+            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            if (!paymentMethod) {
+                document.getElementById('error').innerText = 'Please select a payment method.';
+            } else {
+                if (paymentMethod.value === 'cashOnDelivery') {
+                    window.location.href = 'Fast_Delivery.html'; // Redirect to completed.html page for cash on delivery
+                } else if (paymentMethod.value === 'onlinePayment') {
+                    // Redirect to online payment page or show online payment form
+                    window.location.href = 'online_payment.html'; // Redirect to online payment page
+                }
+            }
+        });
+    </script>
+</body>
+</html>

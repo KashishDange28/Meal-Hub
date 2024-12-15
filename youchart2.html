@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            padding: 5px; /* Decrease padding */
+            height: 30px;
+            font-size: 18px; /* Decrease font size */
+            text-align: middle;
+            font-size: 18px; /* Decrease font size */
+            color: #292727; /* Set text color for navigation bar */
+            background-color: #FFD841; /* Set background color for navigation bar */
+            display: flex;
+            justify-content: space-between; /* Align items and menu icon to the ends */
+            align-items: center; /* Center vertically */
+        }
+        .image-icon {
+            width: 40px; /* Set width of the image icon */
+            height: 30px;
+            margin-right: 10px; /* Add margin to create space between image icon and text */
+        }
+        .header {
+            text-align: left;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .item {
+            margin-bottom: 30px;
+            position: relative;
+            display: flex; /* Make it a flex container */
+            flex-direction: column; /* Stack child elements vertically */
+        }
+        .price {
+            font-weight: bold;
+            margin-right: 10px; /* Add margin to create space between price and button */
+        }
+        .add-button {
+            background: #F6B13A;
+            padding: 5px 10px; /* Add padding to the button */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            background-color: #d49700;
+        }
+        .add-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        button[type="submit"] {
+            align-content: center;
+            width: 40%;
+            height: 50px;
+            padding: 10px;
+            background-color: #ECAF01;
+            color: #292727;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px; /* Add margin to space it from the items */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ECAF01;
+        }
+       
+        h1 {
+            margin: 0;
+            padding: 10px;
+            text-align: left;
+        }
+        .tiffin-group {
+            width: 100%;
+        }
+        .tiffin-item {
+            text-align: left;
+        }
+        .selected-tiffin {
+            margin-top: 20px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .total-price {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .remove-button {
+            background: #ff1a1a;
+            margin-left: 200px; /* Add margin to move the button to the right of the price */
+            padding: 5px 10px; /* Add padding to the button */
+            margin-top: -20px;
+            width: 92px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .remove-button:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <img class="image-icon" src="image/log.png" alt="Icon">
+            <i class="fas fa-arrow-left back-icon"></i> Your Cart
+        </div>
+        <i class="fas fa-bars menu-icon"></i> <!-- Menu icon -->
+    </div>
+    <div class="container">
+        </br><h1>Selected Tiffins:</h1>
+        <div class="tiffin-group">
+            <!-- Tiffin items will be dynamically added here -->
+        </div>
+        <div class="total-price">Total Price: Rs. 0</div>
+        <center>
+            <button type="submit" id="paymentButton">Payment</button>
+        </center>
+    </div>
+
+    <script>
+        // Retrieve selected tiffins from localStorage
+        var selectedTiffins = JSON.parse(localStorage.getItem('selectedTiffins')) || [];
+
+        // Function to update the cart display
+        function updateCart() {
+            var tiffinGroup = document.querySelector('.tiffin-group');
+            tiffinGroup.innerHTML = '';
+
+            var totalPrice = 0;
+
+            selectedTiffins.forEach(function(tiffin) {
+                var tiffinItem = document.createElement('div');
+                tiffinItem.classList.add('item');
+
+                var tiffinName = document.createElement('h2');
+                tiffinName.textContent = tiffin.name;
+
+                var tiffinDescription = document.createElement('p');
+                tiffinDescription.textContent = tiffin.description;
+
+                var priceContainer = document.createElement('div'); // Create a div to contain price
+                priceContainer.classList.add('price-container');
+
+                var tiffinPrice = document.createElement('span');
+                tiffinPrice.classList.add('price');
+                tiffinPrice.textContent = 'Rs. ' + tiffin.price;
+
+                var removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.classList.add('remove-button');
+                removeButton.onclick = function() {
+                    removeFromCart(tiffin);
+                };
+
+                priceContainer.appendChild(tiffinPrice); // Append price to price container
+                tiffinItem.appendChild(tiffinName);
+                tiffinItem.appendChild(tiffinDescription);
+                tiffinItem.appendChild(priceContainer); // Append price container to item
+                tiffinItem.appendChild(removeButton); // Append remove button to item
+                tiffinGroup.appendChild(tiffinItem);
+
+                totalPrice += tiffin.price;
+            });
+
+            var totalPriceElement = document.querySelector('.total-price');
+            totalPriceElement.textContent = 'Total Price: Rs. ' + totalPrice;
+        }
+
+        // Update cart when the page loads
+        updateCart();
+
+        // Handle payment button click
+        var paymentButton = document.getElementById('paymentButton');
+        paymentButton.addEventListener('click', function() {
+            if (selectedTiffins.length > 0) {
+                var confirmation = confirm('Are you ready for payment?');
+                if (confirmation) {
+                    window.location.href = 'payment.html'; // Redirect to payment page
+                }
+            } else {
+                alert('No tiffin added. Please add tiffin to proceed with the payment.');
+            }
+        });
+
+        function removeFromCart(tiffin) {
+            // Find index of the tiffin to remove
+            var index = selectedTiffins.findIndex(function(item) {
+                return item.name === tiffin.name && item.price === tiffin.price && item.description === tiffin.description;
+            });
+
+            if (index !== -1) {
+                // Remove the tiffin from the array
+                selectedTiffins.splice(index, 1);
+
+                // Update localStorage
+                localStorage.setItem('selectedTiffins', JSON.stringify(selectedTiffins));
+
+                // Update the cart display
+                updateCart();
+            }
+        }
+    </script>
+</body>
+</html>

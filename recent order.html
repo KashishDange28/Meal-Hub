@@ -3,18 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>Meal hub</title>
+    <title>Meal hub - Recent Orders</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff; /* White background */
+            background-color: #f3f3f3;
+        }
+        nav {
+            background-color: #FFD841;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        nav .logo img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        nav .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #000;
         }
         .header {
             text-align: left;
-            padding: 20px 0;
+            padding: 20px 20px;
             margin-bottom: 20px;
         }
         .order-container {
@@ -24,15 +67,9 @@
         .order {
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(129, 125, 125, 0.1); /* Drop shadow */
+            box-shadow: 0 0 10px rgba(129, 125, 125, 0.1);
             margin-bottom: 20px;
-        }
-        .order:nth-child(even){
-            background-color: #969696; /* Light gray background for even rows */
-        }
-
-        .order:nth-child(odd){
-            background-color: #969696; /* Light gray background for odd rows */
+            background-color: #fff;
         }
         .order-info {
             display: flex;
@@ -51,9 +88,9 @@
         }
         .back-button a {
             display: inline-block;
-            width: 200px; /* Adjust the width as needed */
+            width: 200px;
             height: 45px;
-            line-height: 45px; /* Vertically center the text */
+            line-height: 45px;
             background-color: #F6B13A;
             border-radius: 50px;
             text-decoration: none;
@@ -61,17 +98,24 @@
             text-align: center;
             font-weight: bold;
         }
-        .back-button-container {
-            text-align: center; /* Center the button horizontally */
-        }
-        .back-icon {
-            margin-right: 10px;
-        }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            <img src="image/log.png" alt="Meal Hub Logo">
+            <h1>Meal hub</h1>
+        </div>
+        <ul>
+            <li><a href="Offer.html">Home</a></li>
+            <li><a href="recent order.html">Recent Orders</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="home.html">Profile</a></li>
+            <li><a href="Offer.html">Logout</a></li>
+        </ul>
+    </nav>
     <div class="header">
-        <h1><i class="fas fa-arrow-left back-icon"></i>  Recent Orders</h1>
+        <h1>Recent Orders</h1>
     </div>
     <div class="order-container">
         <div class="order">
@@ -93,10 +137,8 @@
             </div>
         </div>
     </div>
-    <div class="back-button-container">
-        <div class="back-button">
-            <a href="#">Back</a>
-        </div>
+    <div class="back-button">
+        <a href="#">Back</a>
     </div>
 </body>
 </html>

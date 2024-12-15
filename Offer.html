@@ -1,269 +1,370 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ECAF01;
-        }
-
-        .logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 50%; /* Applies circular shape to the image */
-}
-
-.logo span {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-        header {
-            background-color:  #ECAF01;
-            padding: 20px 0;
-            text-align: center;
-            width: 100%;
-        }
-
-        header h1 {
-            margin: 0;
-            color: white;
-            font-size: 2rem;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 500px;
-            border: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: block;
-            margin: 0 auto;
-            background-color: white;
-        }
-
-        .container {
-            max-width: 80%; /* Full width */
-            margin: 0 auto;
-            height: 50%;
-            padding: 20px;
-        }
-
-        section {
-            background-color: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            margin-left: 20px;
-        }
-
-        h2 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .order {
-            border-bottom: 1px solid white;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly; /* Align items to the ends */
-            background-color: white;
-        }
-
-        .order img {
-            width: 150px;
-            height: 130px;
-            size: 100px;
-            border-radius: 5px;
-            margin-left: 20px; /* Move image to the right */
-        }
-
-        .order-details {
-            flex-grow: 1; /* Allow details to occupy remaining space */
-        }
-
-        .order h3 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 5px; /* Add space between image and details */
-        }
-        /*.search{
-            background-color: #e33939;
-            width: 700px;
-            justify-content: center;
-            align-items: center;
-        }*/
-        
-    </style>
-</head>
-<body style="background-color: #fff;">
-    <header>
-        <nav>
-        <center>
-        <div class="search">
-            <div class="search-icon">
-                <i class="fa-solid fa-magnifying-glass" ></i>
-        <input type="text" placeholder="Search">
-    </div>
-</div>
-</center>
-    
-    <div class="logo">
-        <img src="log.png" alt="Meal Hub Logo">
-        </div>
-    </nav>
-    </header>
-    <section id="today-orders" class="container">
-        <h2>Today's Orders</h2>
-        <div class="order">
-            <div class="order-details">
-                
-                <p>Item: Cheeseburger</p>
-                <p>Quantity: 1</p>
-                <p>Total Price: $5.99</p>
-            </div>
-            <img src="img1.jpeg" alt="Cheeseburger">
-        </div>
-        <div class="order">
-            <div class="order-details">
-                
-                <p>Item: Margherita Pizza</p>
-                <p>Quantity: 2</p>
-                <p>Total Price: $15.98</p>
-            </div>
-            <img src="img2.jpg" alt="Margherita Pizza">
-        </div>
-        <div class="order">
-            <div class="order-details">
-                
-                <p>Item: Chicken Caesar Salad</p>
-                <p>Quantity: 1</p>
-                <p>Total Price: $8.49</p>
-            </div>
-            <img src="img3.JPG" alt="Chicken Caesar Salad">
-        </div>
-         Add more orders as needed
-    </section>
-
-     You can add more sections as needed 
-
-    <script>
-        // You can add JavaScript functionality here
-    </script>
-</body>
-</html>-->
-<!----->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-   <header>
-    <div class="navbar">
-    
-            <div class="logo"></div>
-            </div>
-            <div class="nav-search">
-                <select class="search-select">
-                    <option>All</option>
-                    </select>
-                    <input placeholder="Search Amazon" class="search-input">
+   
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD841;">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: xx-large; margin-right: auto;">
+                <img src="image/log.png" class="logo">
+                Meal Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav" >
+                <form class="d-flex ms-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <div class="search-icon">
-                        <i class="fa-solid fa-magnifying-glass" ></i>
-                        
+                        <button class="btn btn-outline-success" type="submit" style="background-color: white;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Offer.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recent order.html">Recent Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="location.html">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Offer.html">Logout</a>
+                    </li>
+                </ul>
             </div>
-
-   </header>
+        </div>
+    </nav>
+    
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="image/img1.jpg" class="d-block w-100" alt="HumBurger=Rs.50">
+                
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="image/food.jpg" class="d-block w-100" alt="">
+               
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="image/img3.webp" class="d-block w-100" alt="...">
+               
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <h2 class="text-center mt-5">
+        <span class="animated-text">Order</span>
+        <span class="animated-text">Out</span>
+        <span class="animated-text">of</span>
+        <span class="animated-text">Chaos:</span>
+        <span class="animated-text">The</span>
+        <span class="animated-text">Organizer's</span>
+        <span class="animated-text">Guide</span>
+    </h2>
+    <div class="order">
+        <div class="card" style="width: 18rem;">
+            <img src="image/Geetai Mess.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Geetai Mess</h5>
+                <p class="card-text">Savor homemade goodness every day, with our chef's special dishes crafted with love.</p>
+                <center>
+                    <a href="#" class="btn btn-primary stretched-link" onclick="redirectToProfile()">Visit Here</a>
+                </center>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="image/Pawar Mess .jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Pawar Mess</h5>
+                <p class="card-text">Your go-to spot for hearty comfort food, served with a side of nostalgia.</p>
+                <center>
+                    <a href="#" class="btn btn-primary stretched-link" onclick="redirectToProfile()">Visit Here</a>
+                </center>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="image/Radhai Mess.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Radhai Mess</h5>
+                <p class="card-text">Indulge in a culinary journey with our diverse menu, offering flavors from around the globe.</p>
+                <center>
+                    <a href="#" class="btn btn-primary stretched-link" onclick="redirectToProfile()">Visit Here</a>
+                </center>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="image/Vithal mess.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Vital Mess</h5>
+                <p class="card-text">Experience the perfect blend of taste and affordability at our welcoming mess</p>
+                <center>
+                    <a href="#" class="btn btn-primary stretched-link" onclick="redirectToProfile()">Visit Here</a>
+                </center>
+            </div>
+        </div>
+    </div>
+   
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="footer-left">
+                        <h3>About us</h3>
+                        <p>At Meal Hub, we are passionate about bringing people together through the joy of food. With our commitment to quality ingredients and exceptional taste, we strive to create memorable dining experiences for every customer, every time.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="footer-right">
+                        <h3>Contact Us</h3>
+                        <p>Email: mealhub@gmail.com</p>
+                        <p class="p2">Phone: +1 (123) 456-7890</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="copywrite"> &copy; 2024 Meal Hub. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function redirectToProfile() {
+            window.location.href = "yourchartlist.html";
+        }
+        function redirectToProfile2() {
+            window.location.href = "home.html";
+        }
+        function showProfileConfirmation() {
+            $('#profileModal').modal('show');
+        }
+    </script>
 </body>
 <style>
-   .navbar{
-    height: 60px;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    .p2{
+        margin-right: 10px;
+    }
+    .footer {
+        background-color: #222;
+        color: #fff;
+        padding: 40px 0;
+    }
 
-   
-}
-.add-first{
-    color: azure;
-    font-size: 0.85rem;
-    margin-left: 15px;
-}
-.add-sec{
-    color: aliceblue;
-    font-size: 1rem;
-    margin-left: 3px;
-}
-.add-icon{
-    display: flex;
-    align-items: center;
-}
-.nav-logo{
-    height: 50px;
-    width: 100px;
-}
-.logo
-{
-    background-image: url('image/log.png');
-    background-size: cover;
-    height: 50px;
-width: 100px;
-}
-.nav-search{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: rgb(207, 174, 26);
-    width: 620px;
-    height: 40px;
-    border-radius: 4px;
-}
-.search-select{
-    background-color: aliceblue;
-    width: 50px;
-    text-align: center;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border: none;
-}
-.search-input{
-    width: 100%;
-    font-size: 1rem;
-    border: none;
-}
-.search-icon{
-    width: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    background-color: rgb(255, 149, 0);
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    color: rgb(0, 0, 0);
-}
-.nav-search:hover{
-    border: 2px solid orange;
-}
+    .footer row{
+        display: flex;
+    }
+
+    .navbar {
+        background-color: #FFD841;
+    }
+
+    .footer-left h3,
+    .footer-right h3 {
+        color: #FFD841;
+        margin-bottom: 20px;
+    }
+    .footer-right h3{
+        margin-right: 10%;
+    }
+    
+    .footer-left p,
+    .footer-right p {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        background-color: #111;
+        padding: 20px 0;
+    }
+
+    .copywrite {
+        color: #FFD841;
+        text-align: center;
+    }
+
+    .card img{
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.1);
+    }
+
+    .col-md-12{
+        justify-items: center;
+        align-items: center;
+    }
+
+    .logo {
+        margin-right: 10px;
+            size: 10%;
+            width: 50px;
+            height: 50px;
+           
+            border-radius: 50%;
+    }
+    .d-inline-block {
+        width: 40px;
+        height: auto;
+        margin-right: 1px;
+        border-radius: 50%;
+    }
+    .navbar-brand {
+        margin-right: auto;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+        color: #000;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: white;
+    }
+
+    .navbar-toggler {
+        border-color: #FFD841;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30'%3e%3cpath stroke='rgb(255, 216, 65)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .form-control {
+        width: 250px;
+    }
+
+    .search-icon {
+        display: flex;
+        align-items: center;
+        background-color: #FFD841;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .search-icon button {
+        background-color: transparent;
+        border: none;
+        padding: 0.5rem;
+    }
+
+    .search-icon button:hover {
+        background-color: #FBD000;
+    }
+
+    .form-control {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carousel-item {
+        border: 2px solid #FFD841;
+        border-radius: 10px;
+        transition: border-color 0.5s ease;
+    }
+
+    .carousel-inner {
+        width: 100%;
+        max-height: 600px;
+        margin: auto;
+    }
+
+    .carousel-item img {
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .animated-text {
+        animation: highlightText 1s forwards;
+    }
+
+    @keyframes highlightText {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .h2-highlight {
+        border: 2px solid #ffc107;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .d-block{
+        object-fit: cover;
+    }
+
+    .order{
+        display: flex;
+        justify-content: space-between;
+        margin: 40px;
+    }
+
+    .order p{ 
+        text-align: justify;
+    }
+
+    .order h5{ 
+        text-align: center;
+    }
+
+    .order btn{ 
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .border{
+        margin-top: 30px;
+        margin-bottom: 60px;
+        margin-right: 10px;
+        margin-left: 10px;
+        background-color: #FFD841;
+    }
+
+    h2{
+        margin: 10px;
+        margin-top: 20px;
+        color: #ffc107;
+    }
 </style>
 </html>

@@ -8,10 +8,59 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f8f9fa;
+            color: #333;
         }
 
+        /* Navigation Styling */
+        nav {
+            background-color: #FFD841;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin-left: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container Styling */
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -20,15 +69,19 @@
 
         h1 {
             margin-bottom: 20px;
-            color: #333;
+            color: #FFD841;
         }
 
+        /* Map Styling */
         #map {
             height: 400px;
             width: 100%;
             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Search Bar Styling */
         .search-bar {
             width: 100%;
             max-width: 400px;
@@ -40,7 +93,9 @@
             font-size: 16px;
         }
 
-        .find-food-btn {
+        /* Button Styling */
+        .find-food-btn,
+        .continue-btn {
             background-color: #FFD841;
             color: #fff;
             border: none;
@@ -48,83 +103,13 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-        }
-        .continue-btn{
-            background-color: #FFD841;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
 
-        .find-food-btn:hover {
-            background-color: #FFD841;
-        }
+        .find-food-btn:hover,
         .continue-btn:hover {
-            background-color: #FFD841;
+            background-color: #FFC107;
         }
-        
-        body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: white; /* Adjusted shade for the background */
-    background-image: url('texture.png'); /* Background pattern or texture image */
-}
-
-nav {
-    background-color: #FFD841;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 50%; /* Applies circular shape to the image */
-}
-
-.logo span {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-ul {
-    list-style-type: none;
-    justify-content: space-evenly;
-    align-items: flex-start; /* Align items at the start of the cross axis */
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-li {
-    margin-left: 20px;
-    align-self: flex-end; /* Align each item at the end of the cross axis */
-}
-
-a {
-    text-decoration: none;
-    color: #fff;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-.imgc{
-    border-radius: 50%; 
-}
-
     </style>
 </head>
 <body>
@@ -135,52 +120,56 @@ a:hover {
         </div>
         <ul>
             <li><a href="Offer.html">Home</a></li>
-            <li><a href="#">Recent Orders</a></li>
-            <li><a href="#">Location</a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="recent order.html">Recent Orders</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="home.html">Profile</a></li>
+            <li><a href="Offer.html">Logout</a></li>
         </ul>
     </nav>
     <div class="container">
-    
+        <h1>Find Nearby Restaurants</h1>
         <input type="text" id="searchInput" class="search-bar" placeholder="Enter your address...">
         <div id="map"></div>
-        <div class="but">
-        <button onclick="findFoodNearby()" class="find-food-btn">Find Food Nearby</button>
-        <button onclick="continueToOrder()" class="continue-btn">Continue</button>
-    </div>
+        <div class="button-group">
+            <button onclick="findFoodNearby()" class="find-food-btn">Find Food Nearby</button>
+            <button onclick="continueToOrder()" class="continue-btn">Continue to Order</button>
+        </div>
     </div>
 
     <script>
         var map;
         var marker;
-
+    
         function initMap() {
-            // Default location (example coordinates)
-            var defaultLocation = {lat: 40.7128, lng: -74.0060};
-            // Map, centered at default location
+            // Centered at Maharashtra
+            var maharashtraLocation = { lat: 19.7515, lng: 75.7139 };
+            // Map centered at Maharashtra
             map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 12, center: defaultLocation});
-            // Marker, positioned at default location
-            marker = new google.maps.Marker({position: defaultLocation, map: map});
+                document.getElementById('map'), { zoom: 7, center: maharashtraLocation });
+            // Marker positioned at Maharashtra
+            marker = new google.maps.Marker({ position: maharashtraLocation, map: map });
         }
-
+    
         function findFoodNearby() {
             var address = document.getElementById('searchInput').value;
             // Use geocoding to convert address to coordinates
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': address }, function(results, status) {
+            geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status == 'OK') {
                     var location = results[0].geometry.location;
+                    console.log('Geocode successful. Location:', location);
                     // Update map center and marker position
                     map.setCenter(location);
                     marker.setPosition(location);
                 } else {
+                    console.error('Geocode was not successful for the following reason:', status);
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsJFTnV5d1884Y1Afz_Ya7Sc45PvcvEXM&callback=initMap" async defer></script>
+  
 </body>
 </html>

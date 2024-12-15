@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            padding: 10px; /* Increase padding */
+            font-size: 20px;
+            color: #292727;
+            background-color: #FFD841;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 100px; /* Adjust margin-top to center vertically */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .payment-option {
+            width: calc(33.33% - 20px);
+            height: 200px; /* Set a specific height for all payment options */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            cursor: pointer; /* Add cursor pointer */
+        }
+        .payment-option:last-child {
+            margin: 0 auto;
+        }
+        .payment-option:hover {
+            border-color: #FFD841;
+        }
+        .payment-option h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .payment-option i {
+            font-size: 48px;
+            color: #FFD841;
+            margin-bottom: 10px;
+        }
+        .payment-option p {
+            font-size: 14px;
+            color: #777;
+        }
+        .pay-button {
+            width: 100%;
+            padding: 10px 0;
+            background-color: #FFD841;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 26px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .pay-button:hover {
+            background-color: #FFD841;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image/log.png" alt="Icon">
+            
+            <i class="fas fa-arrow-left back-icon" onclick="redirectToCartPage()"></i> Your Cart
+        </div>
+        
+        <i class="fas fa-bars menu-icon" onclick="redirectToCartPage()"></i> <!-- Menu icon -->
+    </div>
+    <div class="container">
+        <h1>Online Payment</h1>
+        <div class="payment-options">
+            <div class="payment-option" id="creditCardOption" onclick="redirectToPayment('credit_card')">
+                <i class="fas fa-credit-card"></i>
+                <h2>Credit/Debit Card</h2>
+                <p>Pay securely using your credit or debit card.</p>
+            </div>
+            <div class="payment-option" id="digitalWalletsOption" onclick="redirectToPayment('digital_wallet')">
+                <i class="fab fa-paypal"></i>
+                <h2>Digital Wallets</h2>
+                <p>Conveniently pay with your digital wallet.</p>
+            </div>
+            <div class="payment-option" id="bankTransfersOption" onclick="redirectToPayment('bank_transfer')">
+                <i class="fas fa-university"></i>
+                <h2>Bank Transfers</h2>
+                <p>Transfer funds directly from your account.</p>
+            </div>
+        </div>
+        <div class="bt">
+            <button class="pay-button" id="payButton">Pay</button>
+        </div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        function redirectToCartPage() {
+            window.location.href = 'payment.html'; // Replace 'cart.html' with the URL of your cart page
+        }
+        function redirectToPayment(paymentType) {
+            // Redirect to another page based on the selected payment type
+            switch (paymentType) {
+                case 'credit_card':
+                    window.location.href = 'credit_card_payment.html';
+                    break;
+                case 'digital_wallet':
+                    window.location.href = 'digital_wallet_payment.html';
+                    break;
+                case 'bank_transfer':
+                    window.location.href = 'bank_transfer_payment.html';
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

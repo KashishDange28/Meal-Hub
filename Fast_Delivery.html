@@ -2,48 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto; /* Added margin-top and margin-bottom */
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #FFD841;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #292727;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin-left: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #292727;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Order Confirmation Styles */
+        .image {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: 250px;
+            width: 250px;
+        }
+
+        .button {
+            width: 150px;
+            height: 40px;
+            background-color: #F6B13A;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e49f05;
+        }
+
+        h1, h2 {
+            color: #F6B13A;
+        }
+
+        .para {
+            color: #000000;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
-<style>.container{
-    color: #F6B13A;
-    /* justify-content: center; */
-    text-align: center ;
-    margin-top: 10%  ;
-}
-
-.para{
-    color: #9F9D9D;
-}
-
-.button{
-    width: 150px;
-    height: 30px;
-    background-color: #F6B13A;
-    border-color: #F6B13A;
-    color: white;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-
-
-}
-</style>
 <body>
+    <nav>
+        <div class="logo">
+            <img src="image/log.png" alt="Meal Hub Logo">
+            <span>Meal Hub</span>
+        </div>
+        <ul>
+            <li><a href="Offer.html">Home</a></li>
+            <li><a href="recent order.html">Recent Orders</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="home.html">Profile</a></li>
+            <li><a href="Login.html">Logout</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
-        <h1>You have successfully</h1>
-        <img src="image/scotty.png" height="250px" width="250px" alt="scooty">
-        <h2>Placed Order!!</h2>
+        <h1>You have successfully placed your order!</h1>
+        <img class="image" src="image/scotty.png" alt="Scooty">
+        <h2>Thank you for choosing us!</h2>
         
         <div class="para">
-
-        <p>Order online in just few click we are hear to serve your smooth and tasty burger in just 30 min 
-            so you didn’t need to go outside </p>
-
+            <p>Order online in just a few clicks! We are here to serve you with delicious and smooth burgers, delivered to your doorstep in just 30 minutes. No need to step outside!</p>
         </div>
-        <button class="button">Back</button>
+        <button class="button" onclick="redirectToCartPage()">Back to Offers</button>
     </div>
+
+    <script>
+        function redirectToCartPage() {
+            window.location.href = 'Offer.html'; // Replace 'Offer.html' with the URL of your offers page
+        }
+    </script>
 </body>
 </html>

@@ -4,48 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Hub</title>
-    <link rel="stylesheet" href="hom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <style>
         body {
-            font-family:'Montserrat', sans-serif;
-            background-color: white;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f3f3f3;
             margin: 0;
             padding: 0;
+        }
+        nav {
+            background-color: #FFD841;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        nav .logo img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        nav .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #000;
         }
         .container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: none;
-           
-            text-align: center; /* Center align the content */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .container img {
-            width: 150px; /* Adjust the width of the image */
-            height: 200px; /* Adjust the height of the image */
-            object-fit: cover; /* Maintain aspect ratio and cover the container */
-            border-radius: 8px; /* Make the image slightly rounded */
-            margin-bottom: 20px; /* Add some space below the image */
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid #FFD841;
+            object-fit: cover;
         }
         .form-group {
             margin-bottom: 20px;
         }
         .form-group input,
         .form-group select {
-            width: 100%; /* Make both input and select full width */
+            width: calc(100% - 20px);
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
             box-sizing: border-box;
+            font-size: 1rem;
         }
         .form-group input[type="submit"] {
             background-color: #FFD841;
             color: #fff;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .form-group input[type="submit"]:hover {
-            background-color: #FFD841;
+            background-color: #FFC300;
         }
     </style>
 </head>
@@ -57,17 +104,17 @@
         </div>
         <ul>
             <li><a href="Offer.html">Home</a></li>
-            <li><a href="#">Recent Orders</a></li>
-            <li><a href="#">Location</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="recent order.html">Recent Orders</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="home.html">Profile</a></li>
+            <li><a href="Offer.html">Logout</a></li>
         </ul>
     </nav>
     
     <div class="container">
         <div class="imgc">
-        <img src="image/img4.jpg" alt="Profile Photo">
-    </div>
+            <img src="image/img4.jpg" alt="Profile Photo">
+        </div>
         <form action="#" method="post">
             <div class="form-group">
                 <input type="text" name="fullname" placeholder="Full Name" required>
