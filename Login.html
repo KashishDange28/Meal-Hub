@@ -1,161 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Meal Hub</title>
-    <style>
-        body {
-            background-color: #ECAF01;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        h1 {
-            font-weight: bold;
-            margin-top: -50px; /* Adjust as needed to move the heading up */
-        }
-
-        .image-container {
-            margin-bottom: 40px; /* Adjust as needed to create space between image and heading */
-        }
-
-        .image-container img {
-            max-width: 200px; /* Set the maximum width of the image */
-            height: auto;
-        }
-
-        .input-container {
-            position: relative; /* Position relative for icon placement */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input {
-            padding: 10px 35px 10px 40px; /* Adjust padding to accommodate icons */
-            margin-bottom: 10px;
-            width: 200px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-        }
-
-        input::before {
-            content: '\f0e0'; /* Unicode for envelope icon */
-            font-family: 'Font Awesome 6';
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777; /* Adjust icon color */
-        }
-
-        input[type="password"]::before {
-            content: '\f023'; /* Unicode for lock icon */
-        }
-
-        .button-container {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center; /* Center the content horizontally */
-            width: 100%; /* Adjust as needed */
-        }
-
-        .button-container a {
-            padding: 6px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 15px;
-            line-height: 22px;
-            text-align: center;
-        }
-
-        .fa-lock {
-            position: absolute;
-            left: 20px; /* Adjusted position */
-            top: 30%;
-            transform: translateY(-20%);
-            color: #ECAF01; /* Adjust color as needed */
-        }
-
-        .fa-envelope {
-            position: absolute;
-            left: 20px; /* Adjusted position */
-            top: 43%;
-            transform: translateY(-60%);
-            color: #ECAF01; /* Adjust color as needed */
-        }
-
-        .signup {
-            color: #FFFFFF;
-            margin-right: 10px; /* Add space between buttons */
-        }
-
-        .forgot-password {
-            color: #2D2626;
-            margin-left: 10px; /* Add space between buttons */
-        }
-
-        .login {
-            padding: 15px 90px; /* Adjust padding as needed */
-            background: #FFD841;
-            border-radius: 30px;
-            cursor: pointer;
-            text-decoration: none;
-            color: #201f1f;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Meal Hub</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ECAF01;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #FFD841;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #f3c500;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .password-container {
+      position: relative;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .forgot-password {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    .forgot-password a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    #error-message {
+      color: red;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+      min-height: 20px;
+    }
+    #success-message {
+      color: green;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+      min-height: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="image-container">
-        <img class="clear-image" src="image/logo4.png" alt="Logo">
+  <form id="login-form">
+    <h2>Login</h2>
+    <div id="error-message"></div>
+    <div id="success-message"></div>
+    <input type="email" id="login-email" placeholder="Email" required />
+    <div class="password-container">
+      <input type="password" id="login-password" placeholder="Password" required />
+      <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
     </div>
-    <h1>Welcome back</h1>
-        <div class="input-container">
-            <i class="fa-regular fa-envelope"></i>
-            <input type="email" placeholder="Email ID/Name">
-        </div>
-       
-        <div class="input-container">
-            <i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="Password">
-        </div>
-    <div class="input-container">   
-        <div class="button-container">
-            <a class="signup" href="#">Sign Up</a>
-            <a class="forgot-password" href="#">Forgot Password ?</a>
-        </div>
+    <div class="forgot-password">
+      <a href="forgot-password.html">Forgot password?</a>
     </div>
-    <a class="login" onclick="window.location.href='Offer.html'">Login</a><script>
-        document.querySelector('.login').addEventListener('click', async (event) => {
-            event.preventDefault();
-    
-            const email = document.querySelector('input[type="email"]').value;
-            const password = document.querySelector('input[type="password"]').value;
-    
-            const response = await fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-            });
-    
-            if (response.ok) {
-                alert('Login successful!');
-                window.location.href = 'Offer.html';
-            } else {
-                alert('Login failed. Please check your credentials.');
-            }
+    <button type="submit" id="login-button">Sign In</button>
+    <p style="text-align: center; margin-top: 15px;">
+      Don't have an account? <a href="register.html">Register</a>
+    </p>
+  </form>
+
+  <script>
+    // Initialize Supabase
+    const supabaseUrl = 'https://bwpdfsmjhwppjssawzta.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3cGRmc21qaHdwcGpzc2F3enRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYyNjUzMDMsImV4cCI6MjA2MTg0MTMwM30.ufivNaP6jJxX16-g2GI74Crq7bDOwhv5JxXK9DnhTZE';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+    // DOM elements
+    const loginForm = document.getElementById('login-form');
+    const loginButton = document.getElementById('login-button');
+    const errorMessage = document.getElementById('error-message');
+    const successMessage = document.getElementById('success-message');
+
+    // Toggle password visibility
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    // Login handler
+    async function handleLogin(event) {
+      event.preventDefault();
+      loginButton.disabled = true;
+      loginButton.textContent = 'Signing in...';
+      errorMessage.textContent = '';
+      successMessage.textContent = '';
+
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email,
+          password: password
         });
-    </script>
-    
+
+        if (error) {
+          throw error;
+        }
+
+        // Login successful
+        successMessage.textContent = 'Login successful! Redirecting...';
+        window.location.href = 'offer.html';
+      } catch (error) {
+        errorMessage.textContent = error.message || 'Login failed. Please try again.';
+        loginButton.disabled = false;
+        loginButton.textContent = 'Sign In';
+      }
+    }
+
+    // Event Listeners
+    loginForm.addEventListener('submit', handleLogin);
+
+    // Check if user is already logged in
+    async function checkSession() {
+      const { data, error } = await supabase.auth.getSession();
+      if (data.session) {
+        window.location.href = 'offer.html';
+      }
+    }
+
+    // Run session check when page loads
+    checkSession();
+  </script>
 </body>
 </html>
